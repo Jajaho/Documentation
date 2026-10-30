@@ -152,8 +152,8 @@ Red Pitaya states and errors:
 | |                                                    | | Python: ``rp_GetError(<errorCode>)``            |                                                           |                        |
 | |                                                    | |                                                 |                                                           |                        |
 +------------------------------------------------------+---------------------------------------------------+-----------------------------------------------------------+------------------------+
-| | -                                                  | | C++: ``rp_EnableDigitalLoop(bool enable)``      | | Enables/disables the Digital Loop (internal FPGA        | 2.00-18 and up         |
-| |                                                    | |                                                 | | connection between fast analog inputs and outputs).     |                        |
+| | ``RP:DIg[:loop]``                                  | | C++: ``rp_EnableDigitalLoop(bool enable)``      | | Enables/disables the Digital Loop (internal FPGA        | 2.00-18 and up         |
+| | (enables the loop only)                            | |                                                 | | connection between fast analog inputs and outputs).     |                        |
 | |                                                    | | Python: ``rp_EnableDigitalLoop(<enable>)``      | |                                                         |                        |
 | |                                                    | |                                                 | |                                                         |                        |
 +------------------------------------------------------+---------------------------------------------------+-----------------------------------------------------------+------------------------+

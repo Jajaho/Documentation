@@ -38,7 +38,7 @@ Table of correlated SCPI and API commands for the Red Pitaya.
 +------------------------------------------------------+---------------------------------------------+-----------------------------------------------------------+--------------------+
 | SCPI                                                 | API, Jupyter                                | DESCRIPTION                                               |  ECOSYSTEM         |
 +======================================================+=============================================+===========================================================+====================+
-| | -                                                  | | C++: ``rp_Init()``                        | Initializes and enables the command interface.            | 1.04-18 and up     |
+| | ``RP:INit``                                        | | C++: ``rp_Init()``                        | Initializes and enables the command interface.            | 1.04-18 and up     |
 | |                                                    | |                                           |                                                           |                    |
 | |                                                    | | Python: ``rp_Init()``                     |                                                           |                    |
 | |                                                    | |                                           |                                                           |                    |
@@ -48,17 +48,12 @@ Table of correlated SCPI and API commands for the Red Pitaya.
 | |                                                    | | Python: ``rp_IsApiInit()``                |                                                           |                    |
 | |                                                    | |                                           |                                                           |                    |
 +------------------------------------------------------+---------------------------------------------+-----------------------------------------------------------+--------------------+
-| | -                                                  | | C++: ``rp_Release()``                     | Release command interface resources.                      | 1.04-18 and up     |
+| | ``RP:RELease``                                     | | C++: ``rp_Release()``                     | Release command interface resources.                      | 1.04-18 and up     |
 | |                                                    | |                                           |                                                           |                    |
 | |                                                    | | Python: ``rp_Release()``                  |                                                           |                    |
 | |                                                    | |                                           |                                                           |                    |
 +------------------------------------------------------+---------------------------------------------+-----------------------------------------------------------+--------------------+
-| | -                                                  | | C++: ``rp_Reset()``                       | | Resets digital and analog pin settings as well as       | 1.04-18 and up     |
-| |                                                    | |                                           | | generation and acquisition settings to default values.  |                    |
-| |                                                    | | Python: ``rp_Reset()``                    | |                                                         |                    |
-| |                                                    | |                                           | |                                                         |                    |
-+------------------------------------------------------+---------------------------------------------+-----------------------------------------------------------+--------------------+
-| | -                                                  | | C++: ``rp_Reset()``                       | | Resets digital and analog pin settings as well as       | 1.04-18 and up     |
+| | ``RP:REset``                                       | | C++: ``rp_Reset()``                       | | Resets digital and analog pin settings as well as       | 1.04-18 and up     |
 | |                                                    | |                                           | | generation and acquisition settings to default values.  |                    |
 | |                                                    | | Python: ``rp_Reset()``                    | |                                                         |                    |
 | |                                                    | |                                           | |                                                         |                    |
