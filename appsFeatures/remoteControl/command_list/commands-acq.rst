@@ -97,19 +97,19 @@ Acquisition Control
 | |                                   | |                                                                            | | (Only STEMlab 125-14 4-Input)                                            |                    |
 | |                                   | |                                                                            | | (All boards from 2.07-48)                                                |                    |
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | ``ACQ:UNLOCK``                    | | C++: ``rp_AcqUnlockTrigger()``                                             | Unlocks trigger capture after a trigger has been detected.                 | in dev             |
+| | ``ACQ:UNLOCK``                    | | C++: ``rp_AcqUnlockTrigger()``                                             | Unlocks trigger capture after a trigger has been detected.                 | 3.00-57 and up     |
 | |                                   | |                                                                            |                                                                            |                    |
-| |                                   | | Python: ``rp_AcqUnlockTrigger()``                                          |                                                                            |                    |
+| |                                   | | Python: ``rp_AcqUnlockTrigger()``                                          |                                                                            | API: 2.00-30 and up|
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | ``ACQ:UNLOCK:CH<n>``              | | C++: ``rp_AcqUnlockTriggerCh(rp_channel_t)``                               | | Unlocks trigger capture for specified channel.                           | in dev             |
+| | ``ACQ:UNLOCK:CH<n>``              | | C++: ``rp_AcqUnlockTriggerCh(rp_channel_t)``                               | | Unlocks trigger capture for specified channel.                           | 3.00-57 and up     |
 | |                                   | |                                                                            | | Used only in split trigger mode                                          |                    |
-| |                                   | | Python: ``rp_AcqUnlockTriggerCh(<channel>)``                               |                                                                            |                    |
+| |                                   | | Python: ``rp_AcqUnlockTriggerCh(<channel>)``                               |                                                                            | API: 2.05-37 and up|
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | -                                 | | C++: ``rp_AcqGetUnlockTrigger(bool* state)``                               | Gets the trigger's current blocking state.                                 | in dev             |
+| | -                                 | | C++: ``rp_AcqGetUnlockTrigger(bool* state)``                               | Gets the trigger's current blocking state.                                 | 2.00-30 and up     |
 | |                                   | |                                                                            |                                                                            |                    |
 | |                                   | | Python: ``rp_AcqGetUnlockTrigger()``                                       |                                                                            |                    |
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | -                                 | | C++: ``int rp_AcqGetUnlockTriggerCh(rp_channel_t channel, bool* state);``  | Gets the trigger's current blocking state in split mode                    | in dev             |
+| | -                                 | | C++: ``int rp_AcqGetUnlockTriggerCh(rp_channel_t channel, bool* state);``  | Gets the trigger's current blocking state in split mode                    | 2.05-37 and up     |
 | |                                   | |                                                                            |                                                                            |                    |
 | |                                   | | Python: ``rp_AcqGetUnlockTriggerCh(<channel>)``                            |                                                                            |                    |
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
@@ -123,20 +123,20 @@ Acquisition Control
 | |                                   | | Python: ``rp_AcqGetSplitTrigger()``                                        | | (All boards from 2.07-48)                                                |                    |
 | |                                   | |                                                                            |                                                                            |                    |
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | -                                 | | C++: ``rp_AcqSetSplitTriggerPass(bool enable)``                            | | Makes it possible to call Ch functions even if split trigger is not      | in dev             |
+| | -                                 | | C++: ``rp_AcqSetSplitTriggerPass(bool enable)``                            | | Makes it possible to call Ch functions even if split trigger is not      | 2.05-37 and up     |
 | |                                   | |                                                                            | | supported in hardware, by forwarding to common functions.                |                    |
 | |                                   | | Python: ``rp_AcqSetSplitTriggerPass(<enable>)``                            | |                                                                          |                    |
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | -                                 | | C++: ``rp_AcqGetSplitTriggerPass(bool* state)``                            | Returns the state of function forwarding for channel-specific commands.    | in dev             |
+| | -                                 | | C++: ``rp_AcqGetSplitTriggerPass(bool* state)``                            | Returns the state of function forwarding for channel-specific commands.    | 2.05-37 and up     |
 | |                                   | |                                                                            |                                                                            |                    |
 | |                                   | | Python: ``rp_AcqGetSplitTriggerPass()``                                    |                                                                            |                    |
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | ``ACQ:M16BIT <state>``            | | C++: ``rp_AcqSet16BitMode(bool enable)``                                   | | Enables the mode when the FPGA returns data in 16-bit format.            | in dev             |
+| | ``ACQ:M16BIT <state>``            | | C++: ``rp_AcqSet16BitMode(bool enable)``                                   | | Enables the mode when the FPGA returns data in 16-bit format.            | 3.00-57 and up     |
 | |                                   | |                                                                            |                                                                            |                    |
 | |                                   | | Python: ``rp_AcqSet16BitMode(<enable>)``                                   |                                                                            |                    |
 | |                                   | |                                                                            |                                                                            |                    |
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | ``ACQ:M16BIT?`` > ``<state>``     | | C++: ``rp_AcqGet16BitMode(bool* state)``                                   | | Returns the 16-bit mode status                                           | in dev             |
+| | ``ACQ:M16BIT?`` > ``<state>``     | | C++: ``rp_AcqGet16BitMode(bool* state)``                                   | | Returns the 16-bit mode status                                           | 3.00-57 and up     |
 | |                                   | |                                                                            |                                                                            |                    |
 | |                                   | | Python: ``rp_AcqGet16BitMode()``                                           |                                                                            |                    |
 | |                                   | |                                                                            |                                                                            |                    |
@@ -146,14 +146,14 @@ Acquisition Control
 | |                                   | | Python: ``rp_AcqResetFpga()``                                              |                                                                            |                    |
 | |                                   | |                                                                            |                                                                            |                    |
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | ``ACQ:KEEP:ARM <state>``          | | C++: ``rp_AcqSetArmKeep(bool enable)``                                     | | Enable continuous acquisition even after trigger has happened.           | in dev             |
+| | ``ACQ:KEEP:ARM <state>``          | | C++: ``rp_AcqSetArmKeep(bool enable)``                                     | | Enable continuous acquisition even after trigger has happened.           | 3.00-57 and up     |
 | | Example:                          | |                                                                            | | When enabled, the buffer continues to fill after trigger                 |                    |
-| | ``ACQ:KEEP:ARM ON``               | | Python: ``rp_AcqSetArmKeep(<enable>)``                                     | | (ARM keep mode).                                                         |                    |
+| | ``ACQ:KEEP:ARM ON``               | | Python: ``rp_AcqSetArmKeep(<enable>)``                                     | | (ARM keep mode).                                                         | API: 2.00-15 and up|
 | |                                   | |                                                                            | |                                                                          |                    |
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
-| | ``ACQ:KEEP:ARM?`` > ``<state>``   | | C++: ``rp_AcqGetArmKeep(bool* state)``                                     | | Get the status of continuous acquisition after trigger setting.          | in dev             |
+| | ``ACQ:KEEP:ARM?`` > ``<state>``   | | C++: ``rp_AcqGetArmKeep(bool* state)``                                     | | Get the status of continuous acquisition after trigger setting.          | 3.00-57 and up     |
 | | Example:                          | |                                                                            | | Returns ``ON`` if arm keep mode is enabled.                              |                    |
-| | ``ACQ:KEEP:ARM?`` > ``ON``        | | Python: ``rp_AcqGetArmKeep()``                                             | |                                                                          |                    |
+| | ``ACQ:KEEP:ARM?`` > ``ON``        | | Python: ``rp_AcqGetArmKeep()``                                             | |                                                                          | API: 2.00-15 and up|
 +-------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------+--------------------+
 
 
@@ -284,13 +284,13 @@ Acquisition settings
 | | ``ACQ:FILTER:BYPASS:CH1?`` > ``ON``               | | Python: ``rp_AcqGetBypassFilter(<channel>)``                                                 | |                                                                             |                    |
 | |                                                   | |                                                                                              | |                                                                             |                    |
 +-----------------------------------------------------+------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+--------------------+
-| | ``ACQ:SOUR<n>:OFFS <offset>``                     | | C++: ``rp_AcqSetOffset(rp_channel_t channel, float value)``                                  | | Adds a voltage offset when requesting data. Only affects float and double   | in dev             |
+| | ``ACQ:SOUR<n>:OFFS <offset>``                     | | C++: ``rp_AcqSetOffset(rp_channel_t channel, float value)``                                  | | Adds a voltage offset when requesting data. Only affects float and double   | 3.00-57 and up     |
 | | Example:                                          | |                                                                                              | | data types. Raw data remains unchanged.                                     |                    |
-| | ``ACQ:SOUR1:OFFS 0.1``                            | | Python: ``rp_AcqSetOffset(<channel>, <value>)``                                              | |                                                                             |                    |
+| | ``ACQ:SOUR1:OFFS 0.1``                            | | Python: ``rp_AcqSetOffset(<channel>, <value>)``                                              | |                                                                             | API: 2.05-37 and up|
 +-----------------------------------------------------+------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+--------------------+
-| | ``ACQ:SOUR<n>:OFFS?`` > ``<offset>``              | | C++: ``rp_AcqGetOffset(rp_channel_t channel, float* value)``                                 | | Returns the offset value in volts.                                          | in dev             |
+| | ``ACQ:SOUR<n>:OFFS?`` > ``<offset>``              | | C++: ``rp_AcqGetOffset(rp_channel_t channel, float* value)``                                 | | Returns the offset value in volts.                                          | 3.00-57 and up     |
 | | Example:                                          | |                                                                                              | |                                                                             |                    |
-| | ``ACQ:SOUR1:OFFS?`` > ``0.1``                     | | Python: ``rp_AcqGetOffset(<channel>)``                                                       | |                                                                             |                    |
+| | ``ACQ:SOUR1:OFFS?`` > ``0.1``                     | | Python: ``rp_AcqGetOffset(<channel>)``                                                       | |                                                                             | API: 2.05-37 and up|
 +-----------------------------------------------------+------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+--------------------+
 | | ``ACQ:SOUR<n>:GAIN <state>``                      | | C++: ``rp_AcqSetGain(rp_channel_t channel, rp_pinState_t state)``                            | | Set the gain for the specified channel to HIGH or LOW.                      | 1.04-18 and up     |
 | |                                                   | |                                                                                              | | (For SIGNALlab 250-12 this is 1:20 and 1:1 attenuator).                     |                    |
@@ -375,7 +375,7 @@ Acquisition trigger
 
 - ``<n> = {1,2}`` (set channel IN1 or IN2)
 - ``<source> = {DISABLED, NOW, CH1_PE, CH1_NE, CH2_PE, CH2_NE, EXT_PE, EXT_NE, AWG_PE, AWG_NE}``  Default: ``DISABLED``
-- ``<source> = {<source>, CH1_AE, CH2_AE, EXT_AE, AWG_AE}  (any edge triggering)`` **In dev**
+- ``<source> = {<source>, CH1_AE, CH2_AE, EXT_AE, AWG_AE}  (any edge triggering)`` (3.00-57 and up)
 - ``<state> = {WAIT, TD}``
 - ``<tr_state> = {OK, TIMEOUT,ERROR}``
 - ``<fill_state> = {0, 1}``
@@ -392,14 +392,14 @@ Acquisition trigger
 
 - ``<n> = {3,4}`` (set channel IN3, or IN4)
 - ``<source> = {CH3_PE, CH3_NE, CH4_PE, CH4_NE}``
-- ``<source> = {<source>, CH3_AE, CH4_AE}  (any edge triggering)`` **In dev**
+- ``<source> = {<source>, CH3_AE, CH4_AE}  (any edge triggering)`` (3.00-57 and up)
 
 **Available Jupyter and API macros:**
 
 - Fast analog channels - ``RP_CH_1, RP_CH_2``
 - Acquisition trigger - ``RP_TRIG_SRC_DISABLED, RP_TRIG_SRC_NOW, RP_TRIG_SRC_CHA_PE, RP_TRIG_SRC_CHA_NE, RP_TRIG_SRC_CHB_PE, RP_TRIG_SRC_CHB_NE,``
   ``RP_TRIG_SRC_EXT_PE, RP_TRIG_SRC_EXT_NE, RP_TRIG_SRC_AWG_PE, RP_TRIG_SRC_AWG_NE``
-- Acquisition trigger any edge - ``RP_TRIG_SRC_CHA_AE, RP_TRIG_SRC_CHB_AE, RP_TRIG_SRC_EXT_AE, RP_TRIG_SRC_AWG_AE`` **In dev**
+- Acquisition trigger any edge - ``RP_TRIG_SRC_CHA_AE, RP_TRIG_SRC_CHB_AE, RP_TRIG_SRC_EXT_AE, RP_TRIG_SRC_AWG_AE`` (3.00-57 and up)
 - Acquisition trigger state - ``RP_TRIG_STATE_TRIGGERED, RP_TRIG_STATE_WAITING``
 - Buffer size - ``ADC_BUFFER_SIZE, DAC_BUFFER_SIZE``
 - Interrupt modes - ``RP_INT_TRIGGER, RP_INT_FILL``
@@ -408,7 +408,7 @@ Acquisition trigger
 
 - Fast analog channels - ``RP_CH_3, RP_CH_4``
 - Acquisition trigger - ``RP_TRIG_SRC_CHC_PE, RP_TRIG_SRC_CHC_NE, RP_TRIG_SRC_CHD_PE, RP_TRIG_SRC_CHD_NE``
-- Acquisition trigger any edge - ``RP_TRIG_SRC_CHC_AE, RP_TRIG_SRC_CHD_AE`` **In dev**
+- Acquisition trigger any edge - ``RP_TRIG_SRC_CHC_AE, RP_TRIG_SRC_CHD_AE`` (3.00-57 and up)
 
 
 .. tabularcolumns:: |p{50mm}|p{50mm}|p{60mm}|p{30mm}|
