@@ -60,6 +60,71 @@ For all other Red Pitaya OS versions, go to the link above and change the branch
 
 
 
+3.00-57
+=======
+
+New Commands
+-------------
+
+* Trigger unlock and arm keep commands: ``ACQ:UNLOCK``, ``ACQ:UNLOCK:CH<n>`` and ``ACQ:KEEP:ARM <state>`` (:ref:`Acquisition <commands_acq>`).
+* 16-bit acquisition data: ``ACQ:M16BIT <state>``.
+* Voltage offset added to the acquired data: ``ACQ:SOUR<n>:OFFS <offset>``.
+* Acquisition timestamps: ``ACQ:TS <time_ns>`` and ``ACQ:TS:CH<n>?``.
+* Pre-trigger sample counter: ``ACQ:TRig:PRE:COUNTER?`` and ``ACQ:TRig:PRE:COUNTER:CH<n>?``.
+* Trigger and buffer-fill interrupts: ``ACQ:TRig:INT:ENABLE[:CH<n>]``, ``ACQ:TRig:INT<timeout_ms>:STAT[:CH<n>]?`` and ``ACQ:TRig:INT<timeout_ms>:FILL[:CH<n>]?``.
+* Any-edge trigger sources for ``ACQ:TRig <source>``: ``CH1_AE``, ``CH2_AE``, ``EXT_AE`` and ``AWG_AE`` (``CH3_AE`` and ``CH4_AE`` only on STEMlab 125-14 4-Input).
+* ``SOUR<n>:BURS:USE:LASTSample <state>`` - the output holds the last sample of the buffer after a burst instead of the Last Value (:ref:`Generation <commands_gen>`).
+
+
+Command changes
+-----------------
+
+* ``ACQ:DATA:Units RAW`` - RAW data is now returned calibrated, also on boards that apply the calibration in the FPGA (see the 2.07-48 issue below).
+* ``ACQ:RST`` - also disables the split trigger mode and the 16-bit mode.
+* ``ACQ:RST:CH<n>`` - no longer disables the split trigger mode (STEMlab 125-14 4-Input).
+* ``SOUR<n>:BURS:INT:PER <time>`` - accepts a non-integer time in µs, resolved to one DAC clock period (8 ns on 125 MS/s boards), up to 4 s. Up to 2.07-48, the value is truncated to whole µs.
+* ``SOUR<n>:TRAC:DATA:DATA <array>`` - values outside ±1 are limited to ±1. Up to 2.07-48, the command fails with "Data not normalized".
+* ``*IDN?`` - returns ``REDPITAYA,INSTR,<build date>,<OS version>-<commit hash>`` instead of ``REDPITAYA,INSTR2025,,01-21``.
+
+
+
+2.07-48
+=======
+
+New Commands
+-------------
+
+* Deep Memory Generation commands ``SOUR<n>:AXI:*``, ``GEN:AXI:START?`` and ``GEN:AXI:SIZE?`` (:ref:`Deep Memory Generation <commands_dmg>`).
+* Rise and fall time of the fast analog outputs: ``SOUR<n>:RISE:TIME <time>`` and ``SOUR<n>:FALL:TIME <time>`` (the API functions existed before).
+
+
+Command changes
+-----------------
+
+* The old daisy chain trigger commands ``DAISY:TRIG_O:ENable`` and ``DAISY:TRIG_O:SOUR`` (renamed in 2.04-35) are removed. Use ``DAISY:TRig:Out:ENable`` and ``DAISY:TRig:Out:SOUR``.
+
+
+Issues
+--------
+
+* ``ACQ:DATA:Units RAW`` - on boards that apply the input calibration in the FPGA (for example STEMlab 125-14 and SIGNALlab 250-12), reading data in RAW units fails with error 9524 "Command not supported" as long as a calibration is loaded. The query returns no data (an empty line with ``RP:RET_ON_ERROR ON``). Data in VOLTS is not affected. Fixed in 3.00-57.
+
+
+
+2.07-43
+=======
+
+New Commands
+-------------
+
+* ``RP:RET_ON_ERROR <bool>`` - a failing query returns an empty line instead of no response (:ref:`Board control <commands_board>`).
+* ``ACQ:DATA:BYTE:ORDER <order>`` - byte order of binary data (``ACQ:DATA:FORMAT BIN``).
+* ``ACQ:FILTER:BYPASS:CH<n> <bypass>`` - bypass of the frequency equalisation filter of the input.
+* Sweep repetitions: ``SOUR<n>:SWeep:REP:COUNT <count>`` and ``SOUR<n>:SWeep:REP:INF <state>`` (:ref:`Sweep mode extended <commands_sweep_ext>`).
+* ``SOUR:TRig:INT:ONLY`` and ``SOUR<n>:TRig:INT:ONLY`` - trigger the generation without resetting the generator state machine.
+
+
+
 2.05-37
 =======
 
